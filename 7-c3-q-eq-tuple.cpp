@@ -18,8 +18,8 @@ int MyRoots(double a, double b, double c, tuple <int, double, double>& root)
     else if (D == 0)
     {
         get<0>(root) = 0;
-        get<1>(root) = (-b - sqrt(D)) / (2 * a);
-        get<2>(root) = (-b + sqrt(D)) / (2 * a);
+        get<1>(root) = (-b ) / (2 * a);
+        get<2>(root) = (-b ) / (2 * a);
     }
     else
     {
