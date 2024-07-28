@@ -1,0 +1,79 @@
+#include <iostream>
+#include <windows.h>
+#include <string>
+
+using namespace std;
+
+class Triangle {
+private:
+    double a, b, c;
+
+public:
+    class TriangleException {
+    public:
+        TriangleException(string params1) {
+            message = "Несуществующий треугольник";
+            params = params1;
+        }
+        void printMessage() const { 
+            cout << params << endl; 
+            cout << message << endl;
+        }
+    private:
+        string message;
+        string params;
+    };
+    Triangle(double aa, double bb, double cc) {
+        if (aa + bb <= cc || bb + cc <= aa || aa + cc <= bb) {
+            string params = "Треугольник со сторонами: " + to_string(aa) + ", " + to_string(bb) + ", " + to_string(cc);
+            throw TriangleException(params);
+        }
+        a = aa;
+        b = bb;
+        c = cc;
+        cout << "Треугольник со сторонами: " << a << ", " << b << ", " << c << endl;
+    }
+
+    void area() const {
+        double p = (a + b + c) / 2;
+        //cout << "Полупериметр равен:" << p << endl;
+        double s = sqrt(p * (p - a) * (p - b) * (p - c));
+        cout << "Площадь равна:" << s << endl;
+    }
+};
+
+int main()
+{
+    SetConsoleOutputCP(1251);
+    SetConsoleCP(1251);
+    double x = 2;
+    double y = 2;
+    double z = 3;
+    double b = 4;
+
+    try
+    {
+        Triangle t1(x, y, z);
+        t1.area();
+
+    }
+    catch (Triangle::TriangleException& error)
+    {
+        cout << "Ошибка" << endl;
+        error.printMessage();
+        return 1;
+    }
+    try
+    {
+        Triangle t2(x, y, b);
+        t2.area();
+    }
+    catch (Triangle::TriangleException& error)
+    {
+        cout << "Ошибка" << endl;
+        error.printMessage();
+        return 1;
+    }
+    return 0;
+}
+
