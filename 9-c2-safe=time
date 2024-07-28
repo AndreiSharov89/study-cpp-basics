@@ -1,0 +1,81 @@
+#include <string>
+#include <iostream>
+#include <windows.h>
+
+using namespace std;
+
+class Time {
+public:
+    class TimeExcpt {
+    public:
+        TimeExcpt(string params1) {
+            message = "Неверное время, это уже другой день!";
+            params = params1;
+        }
+        void printMessage() const {
+            cout << params << endl;
+            cout << message << endl;
+        }
+    private:
+        string message;
+        string params;
+    };
+    Time() : h(0), mins(0), sec(0) {};
+    Time(int hh, int mm, int ss) {
+        while (ss >= 60) {
+            mm++;
+            ss -= 60;
+        }
+        while (mm >= 60) {
+            hh++;
+            mm -= 60;
+        }
+        if (hh >= 24) {
+            string params = "+ 1 день " + to_string(hh % 24) + " часов, " + to_string(mm) + " минут, " + to_string(ss) + " секунд";
+            throw TimeExcpt(params);
+            }
+
+        h = hh;
+        mins = mm;
+        sec = ss;
+    }
+    void printTime() const {
+        cout << h << ":" << mins << ":" << sec << std::endl;
+    }
+    Time sumTime(const Time& other) const {
+        int ss = sec + other.sec;
+        int mm = mins + other.mins;
+        int hh = h + other.h;
+
+        return Time(hh, mm, ss);
+    }
+private:
+    int sec;
+    int mins;
+    int h;
+};
+
+int main()
+{
+    SetConsoleOutputCP(1251);
+    SetConsoleCP(1251);
+    Time time3;
+    try {
+        Time time1(12, 131, 141);
+        time1.printTime();
+
+        Time time2 = Time(15, 161, 171);
+        time2.printTime();
+
+        time3 = time1.sumTime(time2);
+        time3.printTime();
+    }
+    catch (Time::TimeExcpt& error)
+    {
+        cout << "Ошибка" << endl;
+        error.printMessage();
+        return 1;
+    }
+}
+
+
