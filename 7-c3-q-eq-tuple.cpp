@@ -5,30 +5,31 @@
 
 using namespace std;
 
-int MyRoots(double a, double b, double c, tuple <int, double, double>& root)
+tuple<int, double, double> MyRoots(double a, double b, double c)
 {
-
+    tuple <int, double, double> roots;
     double D = b * b - 4 * a * c;
     if (D > 0)
     {
-        get<0>(root) = 1;
-        get<1>(root) = (-b - sqrt(D)) / (2 * a);
-        get<2>(root) = (-b + sqrt(D)) / (2 * a);
+        get<0>(roots) = 1;
+        get<1>(roots) = (-b - sqrt(D)) / (2 * a);
+        get<2>(roots) = (-b + sqrt(D)) / (2 * a);
     }
     else if (D == 0)
     {
-        get<0>(root) = 0;
-        get<1>(root) = (-b ) / (2 * a);
-        get<2>(root) = (-b ) / (2 * a);
+        get<0>(roots) = 0;
+        get<1>(roots) = (-b - sqrt(D)) / (2 * a);
+        get<2>(roots) = (-b + sqrt(D)) / (2 * a);
     }
     else
     {
-        get<0>(root) = -1;
+        get<0>(roots) = -1;
     }
-    return get<0>(root);
+    return roots;
+
 }
 
-void printResult(int flag, double a, double b, double c, tuple <int, double, double> root)
+void printResult(tuple <int, double, double> root)
 {
     if (get<0>(root) == 1)
     {
@@ -55,8 +56,6 @@ int main()
     cout << "Введите a: "; cin >> a;
     cout << "Введите b: "; cin >> b;
     cout << "Введите c: "; cin >> c;
-    tuple <int, double, double> roots;
-
-    flag = MyRoots(a, b, c, roots);
-    printResult(flag, a, b, c, roots);
+    tuple <int, double, double> roots = MyRoots(a, b, c);
+    printResult(roots);
 }
