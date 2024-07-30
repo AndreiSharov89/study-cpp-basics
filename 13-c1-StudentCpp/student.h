@@ -4,19 +4,19 @@
 #include <vector>
 class student : public human {
 public:
-	// Конструктор класса Student
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° Student
 	student(std::string last_name, std::string name, std::string second_name,
 		std::vector<int> scores) : human(last_name, name, second_name) {
 		this->scores = scores;
 	}
-	// Получение среднего балла студента
+	// РџРѕР»СѓС‡РµРЅРёРµ СЃСЂРµРґРЅРµРіРѕ Р±Р°Р»Р»Р° СЃС‚СѓРґРµРЅС‚Р°
 	float get_average_score()
 	{
-		// Общее количество оценок
+		// РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС†РµРЅРѕРє
 		unsigned int count_scores = this->scores.size();
-		// Сумма всех оценок студента
+		// РЎСѓРјРјР° РІСЃРµС… РѕС†РµРЅРѕРє СЃС‚СѓРґРµРЅС‚Р°
 		unsigned int sum_scores = 0;
-		// Средний балл
+		// РЎСЂРµРґРЅРёР№ Р±Р°Р»Р»
 		float average_score;
 		for (unsigned int i = 0; i < count_scores; ++i) {
 			sum_scores += this->scores[i];
@@ -27,10 +27,10 @@ public:
 	std::string get_full_name()
 	{
 		std::ostringstream full_name;
-		full_name << "Студент: " << human::get_full_name();
+		full_name << "РЎС‚СѓРґРµРЅС‚: " << human::get_full_name();
 		return full_name.str();
 	}
 private:
-	// Оценки студента
+	// РћС†РµРЅРєРё СЃС‚СѓРґРµРЅС‚Р°
 	std::vector<int> scores;
 };
