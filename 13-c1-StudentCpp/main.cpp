@@ -9,9 +9,9 @@ int main()
 {
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
-	// Оценкистудента
+	// РћС†РµРЅРєРёСЃС‚СѓРґРµРЅС‚Р°
 	std::vector<int> scores;
-	// Добавление оценок студента в вектор
+	// Р”РѕР±Р°РІР»РµРЅРёРµ РѕС†РµРЅРѕРє СЃС‚СѓРґРµРЅС‚Р° РІ РІРµРєС‚РѕСЂ
 	scores.push_back(5);
 	scores.push_back(3);
 	scores.push_back(4);
@@ -21,14 +21,14 @@ int main()
 	scores.push_back(3);
 	scores.push_back(3);
 	scores.push_back(3);
-	student* stud = new student("Петров", "Иван", "Алексеевич", scores);
+	student* stud = new student("РџРµС‚СЂРѕРІ", "РРІР°РЅ", "РђР»РµРєСЃРµРµРІРёС‡", scores);
 	std::cout << stud->get_full_name() << std::endl;
-	std::cout << "Средний балл : " << stud->get_average_score() << std::endl;
+	std::cout << "РЎСЂРµРґРЅРёР№ Р±Р°Р»Р» : " << stud->get_average_score() << std::endl;
 
 	unsigned int teacher_work_time = 40;
-	teacher* tch = new teacher("Сергеев", "Дмитрий", "Сергеевич", teacher_work_time);
+	teacher* tch = new teacher("РЎРµСЂРіРµРµРІ", "Р”РјРёС‚СЂРёР№", "РЎРµСЂРіРµРµРІРёС‡", teacher_work_time);
 	std::cout << tch->get_full_name() << std::endl;
-	std::cout << "Количество часов: " << tch->get_work_time() << std::endl;
+	std::cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ С‡Р°СЃРѕРІ: " << tch->get_work_time() << std::endl;
 
 	return 0;
 }
