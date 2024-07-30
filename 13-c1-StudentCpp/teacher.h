@@ -2,13 +2,13 @@
 #include "human.h"
 #include <string>
 class teacher : public human {
-	// Êîíñòðóêòîð êëàññà teacher
+	// ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÐºÐ»Ð°ÑÑÐ° teacher
 public:
 	teacher(
 		std::string last_name,
 		std::string name,
 		std::string second_name,
-		// Êîëè÷åñòâî ó÷åáíûõ ÷àñîâ çà ñåìåñòð ó ïðåïîäàâàòåëÿ
+		// ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑƒÑ‡ÐµÐ±Ð½Ñ‹Ñ… Ñ‡Ð°ÑÐ¾Ð² Ð·Ð° ÑÐµÐ¼ÐµÑÑ‚Ñ€ Ñƒ Ð¿Ñ€ÐµÐ¿Ð¾Ð´Ð°Ð²Ð°Ñ‚ÐµÐ»Ñ
 		unsigned int work_time
 	) : human(
 		last_name,
@@ -17,7 +17,7 @@ public:
 	) {
 		this->work_time = work_time;
 	}
-	// Ïîëó÷åíèå êîëè÷åñòâà ó÷åáíûõ ÷àñîâ
+	// ÐŸÐ¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð° ÑƒÑ‡ÐµÐ±Ð½Ñ‹Ñ… Ñ‡Ð°ÑÐ¾Ð²
 	unsigned int get_work_time()
 	{
 		return this->work_time;
@@ -25,10 +25,10 @@ public:
 	std::string get_full_name()
 	{
 		std::ostringstream full_name;
-		full_name << "Ïðåïîäàâàòåëü: " << human::get_full_name();
+		full_name << "ÐŸÑ€ÐµÐ¿Ð¾Ð´Ð°Ð²Ð°Ñ‚ÐµÐ»ÑŒ: " << human::get_full_name();
 		return full_name.str();
 	}
 private:
-	// Ó÷åáíûå ÷àñû
+	// Ð£Ñ‡ÐµÐ±Ð½Ñ‹Ðµ Ñ‡Ð°ÑÑ‹
 	unsigned int work_time;
 };
