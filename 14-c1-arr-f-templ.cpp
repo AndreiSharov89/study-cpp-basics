@@ -3,7 +3,7 @@
 
 using namespace std;
 
-template <typename T>
+template <class T>
 T average(T arr[], int size) {
     T sum = 0;
     for (int i = 0; i < size; i++) {
